@@ -1,0 +1,4 @@
+.terraform*
+kubectl
+terraform.tfstate*
+tls*
