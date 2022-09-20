@@ -35,32 +35,6 @@ resource "kubernetes_pod_v1" "example" {
   }
 }
 
-resource "helm_release" "ingress_nginx" {
-  name       = "ingress-nginx"
-  repository = "https://kubernetes.github.io/ingress-nginx"
-  chart      = "ingress-nginx"
-  version    = "3.15.2"
-  timeout    = 300
-
-  values = [<<EOF
-controller:
-  admissionWebhooks:
-    enabled: false
-  electionID: ingress-controller-leader-internal
-  ingressClass: nginx
-  podLabels:
-    app: ingress-nginx
-  service:
-    annotations:
-      service.beta.kubernetes.io/aws-load-balancer-type: nlb
-  scope:
-    enabled: true
-rbac:
-  scope: true
-EOF
-  ]
-}
-
 resource "kubernetes_namespace" "ingress-nginx" {
   metadata {
     labels = {
@@ -73,6 +47,10 @@ resource "kubernetes_namespace" "ingress-nginx" {
 resource "kubernetes_ingress_v1" "nginx_ingress" {
   metadata {
     name = "nginx-ingress"
+    annotations = {
+      "nginx.ingress.kubernetes.io/force-ssl-redirect" = "true"
+      "nginx.ingress.kubernetes.io/ssl-passthrough" = "true"
+    }
   }
   
   spec {

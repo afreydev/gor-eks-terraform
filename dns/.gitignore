@@ -1,0 +1,5 @@
+.terraform*
+kubectl
+terraform.tfstate*
+tls*
+kubeconfig*

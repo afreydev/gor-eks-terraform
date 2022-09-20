@@ -2,3 +2,4 @@
 kubectl
 terraform.tfstate*
 tls*
+kubeconfig*

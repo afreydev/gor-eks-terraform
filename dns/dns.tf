@@ -1,11 +1,11 @@
 resource "aws_route53_zone" "primary" {
-  name = "maracuyacotech.com.co"
+  name = var.zone_primary
 }
 
 resource "aws_route53_record" "www" {
   zone_id = aws_route53_zone.primary.zone_id
-  name    = "www2.maracuyacotech.com.co"
+  name    = var.cname_record_name
   type    = "CNAME"
   ttl     = 300
-  records = [""]
+  records = [var.cname_record_value]
 }
