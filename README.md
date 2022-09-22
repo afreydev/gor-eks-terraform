@@ -11,7 +11,7 @@ https://github.com/afreydev/timeoff-management-application
 
 ![Architecture](https://github.com/afreydev/gor-eks-terraform/blob/main/images/architecture.png?raw=true)
 
-1. To deploy the app we have an [kubernetes cluster](https://github.com/afreydev/gor-eks-terraform/tree/main/cluster) implemented using eks service in aws. This a good option because k8s is a portable technology so the solution could be moved to another provided in an "easier" way compared to other privative platforms. Using k8s we can scale the application and we could implement different deployment methods like canary deployments or blue green aproaches.
+1. To deploy the app we have a [kubernetes cluster](https://github.com/afreydev/gor-eks-terraform/tree/main/cluster) implemented using eks service in aws. This a good option because k8s is a portable technology so the solution could be moved to another provided in an "easier" way compared to other privative platforms. Using k8s we can scale the application and we could implement different deployment methods like canary deployments or blue green aproaches.
 
 2. To deploy the infrastructure you need to create a key for the tls and put it in the cluster folder. 
 ```openssl req \
