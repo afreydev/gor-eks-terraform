@@ -5,7 +5,7 @@
 https://github.com/afreydev/timeoff-management-application
 
 - The Dockerfile had to be updated to run correctly. It had errors related to the base image and the sqlite package.
-- It was added a helm chart to deploy the image in k8s clusters.
+- It was added a [helm chart](https://github.com/afreydev/timeoff-management-application/tree/master/helm/timeoff) to deploy the image in k8s clusters.
 
 ## Architecture
 
